@@ -1,5 +1,5 @@
 Fig.5d: GO enrichment analysis of upregulated DEGs unique for Pik3ca-1
-or Pik3ca-2, and those shared with FOXO1 signature as displayed in 5c
+or Pik3ca-2, and those shared with FOXO1 signature
 ================
 Marle Kraft
 2023-11-20
