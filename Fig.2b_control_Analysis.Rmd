@@ -1,0 +1,78 @@
+---
+title: "Fig.2b_wt_Analysis"
+author: "Marle Kraft"
+date: "2023-10-02"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Packages
+
+```{r}
+library(Seurat)
+library(xlsx)
+```
+
+```{r}
+#Load data
+bec_complete<-readRDS("/Your/File/Directory/bec_complete.rds.rds")
+
+#subset only control BECs
+Idents(bec_complete)<-bec_complete$plate
+control<-subset(bec_complete, idents=c("895s","901s","903s"))
+
+# batch effect correction
+control.list <- SplitObject(object =control, split.by = "plate")
+
+#Prior to finding anchors, we perform standard preprocessing, and identify variable features individually for each.
+for (i in 1:length(control.list)) {
+  control.list[[i]] <- NormalizeData(control.list[[i]], verbose = FALSE,scale.factor = 1000000)
+  control.list[[i]] <- FindVariableFeatures(control.list[[i]], selection.method = "vst",
+                                        nfeatures = 3000, verbose = FALSE)
+}
+
+# finding integration anchors
+control.anchors <- FindIntegrationAnchors(object.list =control.list, anchor.features = 3000)
+
+# integrate data
+control.batchCorr<- IntegrateData(anchorset = control.anchors)
+
+# Run the standard workflow for visualization and clustering
+DefaultAssay(control.batchCorr) <- "integrated"
+control.batchCorr<- ScaleData(object = control.batchCorr, verbose = FALSE)
+
+# dimensionality reduction by pca
+control.batchCorr<- RunPCA(object = control.batchCorr, npcs = 30, verbose = FALSE)
+
+# run umap visualization
+# please note, UMAP is a stochastic algorithm,  which means that different runs of UMAP can produce different results.
+control.batchCorr<- RunUMAP(object = control.batchCorr, reduction = "pca", dims = 1:10)
+control.batchCorr <- FindNeighbors(control.batchCorr, reduction = "pca", dims = 1:10)
+control.batchCorr <- FindClusters(control.batchCorr, resolution = 0.8)
+```
+
+```{r pressure, echo=FALSE}
+#Plot UMAP representation
+DimPlot(control.batchCorr, reduction = "umap")
+
+```
+```{r}
+# Run DEG analysis to find cluster markers   
+
+control.markers <- FindAllMarkers(control.batchCorr, only.pos = TRUE, logfc.threshold = 0.25, assay="RNA")
+
+# save cluster marker list
+
+write.table(control.markers, "control.markers.txt", sep="\t")
+```
+
+#cluster 4 likely to be contamination and was removed from the further analysis
+
+```{r}
+
+
+```
+
