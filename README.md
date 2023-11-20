@@ -1,3 +1,9 @@
-# PIK3CA-driven-venous-malformations
-This repository contains code supporting our publication 
-"Venous-specific PI3K-TIE2 autocrine feedback loop promotes PIK3CA-driven vascular malformations"
+## PIK3CA-driven-venous-malformations 
+
+This repository contains code supporting our publication:
+
+### ***"Venous-specific PI3K-TIE2 autocrine feedback loop promotes PIK3CA-driven vascular malformations"***
+
+***Marle Kraft , Hans Schoofs , Milena Petkova , Jorge Andrade , Ana Rita Grosso , Dr Rui Benedito , Michael Potente, Taija Makinen*** 
+
+Venous malformations (VMs) are vascular anomalies that frequently arise from aberrant activation of either the endothelial TIE2 receptor or its main downstream effector cascade, the PI3K-AKT-mTOR pathway. Identification of causative somatic activating mutations in PIK3CA, which encodes the catalytic subunit of PI3Kα, has enabled repurposing of PI3K-targeting therapeutics for VM treatment, yet curative pharmacological treatments are lacking. Here, we identify a venous-specific disease-promoting autocrine feedback mechanism whereby aberrant PI3Kα activity enhances TIE2 signaling, further escalating abnormal pathway activation. Using a genetic mouse model of Pik3ca-driven VM, we show that cutaneous vascular lesions can develop in the absence of developmental vascular growth and independent of vascular endothelial growth factor (VEGF) signaling. Single cell transcriptomics and high-resolution mosaic analysis in the Pik3ca mutant mice revealed a prominent post-capillary venous phenotype of endothelial cells (ECs) of dermal veins, along with their selective clonal expansion in the Pik3ca mutant mice. This phenotype was linked to a transcriptional signature indicating decreased activity of the PI3K/AKT-inhibited transcription factor FOXO1. Specifically, venous ECs from Pik3ca mice exhibited suppression of FOXO1-regulated target genes such as the antagonistic TIE2 ligand, ANGPT2, coupled with increased TIE2 activity. Pharmacological TIE2 inhibition partially suppressed VM growth, a response that was further enhanced by the combined treatment with the mTOR inhibitor rapamycin. Together, our findings uncover a PI3K/FOXO1-ANGPT2-TIE2 feedback loop that critically contributes to the formation and progression of PI3Kα-driven VMs. Targeting dysregulated TIE2 signaling may thus be an adjunctive therapeutic approach for the efficient treatment of PIK3CA-related VMs.
