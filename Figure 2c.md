@@ -1,4 +1,4 @@
-Fig.2c_control_markers
+Fig.2c: Dot plot of markers defining the 4 subclusters of BECs from panel 2b
 ================
 Marle Kraft
 2023-10-02
