@@ -1,4 +1,4 @@
-Fig.2b_control_analysis
+Fig.2b: UMAP representation of 321 dermal BECs from control mice 
 ================
 Marle Kraft
 2023-10-02
@@ -36,8 +36,7 @@ library(ggplot2)
 
 ``` r
 # load data
-# bec_complete<-readRDS("/Your/File/Directory/bec_complete.rds.rds")
-bec_complete<-all<-readRDS("/Volumes/MyGroups$/Silver/Makinen/Single_Cell_Seq/Project_Venous Malformations/BEC_mutant_mouse_WT_harmony.rds")
+# bec_complete<-readRDS("/Your/File/Directory/bec_complete.rds")
 
 # subset control BECs only
 Idents(bec_complete)<-bec_complete$plate
@@ -46,7 +45,7 @@ control<-subset(bec_complete, idents=c("895s","901s","903s"))
 # batch effect correction
 control.list <- SplitObject(object =control, split.by = "plate")
 
-# prior to finding anchors, we perform standard preprocessing, and identify variable features individually for each.
+# prior to finding anchors, we perform standard preprocessing, and identify variable features individually for each plate
 for (i in 1:length(control.list)) {
   control.list[[i]] <- NormalizeData(control.list[[i]], verbose = FALSE,scale.factor = 1000000)
   control.list[[i]] <- FindVariableFeatures(control.list[[i]], selection.method = "vst",
@@ -59,7 +58,7 @@ control.anchors <- FindIntegrationAnchors(object.list =control.list, anchor.feat
 # integrate data
 control.batchCorr<- IntegrateData(anchorset = control.anchors)
 
-# Run the standard workflow for visualization and clustering
+# run the standard workflow for visualization and clustering
 DefaultAssay(control.batchCorr) <- "integrated"
 control.batchCorr<- ScaleData(object = control.batchCorr, verbose = FALSE)
 
@@ -71,16 +70,6 @@ control.batchCorr<- RunUMAP(object = control.batchCorr, reduction = "pca", dims 
 control.batchCorr <- FindNeighbors(control.batchCorr, reduction = "pca", dims = 1:10)
 control.batchCorr <- FindClusters(control.batchCorr, resolution = 0.8)
 ```
-
-    ## Modularity Optimizer version 1.3.0 by Ludo Waltman and Nees Jan van Eck
-    ## 
-    ## Number of nodes: 350
-    ## Number of edges: 13918
-    ## 
-    ## Running Louvain algorithm...
-    ## Maximum modularity in 10 random starts: 0.5588
-    ## Number of communities: 5
-    ## Elapsed time: 0 seconds
 
 ## UMAP clustering representation - control BECs
 
@@ -119,16 +108,6 @@ clean_BEC_control <- FindNeighbors(clean_BEC_control, reduction = "pca", dims = 
 clean_BEC_control<- FindClusters(clean_BEC_control, resolution = 0.8)
 ```
 
-    ## Modularity Optimizer version 1.3.0 by Ludo Waltman and Nees Jan van Eck
-    ## 
-    ## Number of nodes: 321
-    ## Number of edges: 13054
-    ## 
-    ## Running Louvain algorithm...
-    ## Maximum modularity in 10 random starts: 0.5503
-    ## Number of communities: 4
-    ## Elapsed time: 0 seconds
-
 ## DEG analysis of cleaned dataset - control BECs
 
 ``` r
@@ -142,7 +121,7 @@ write.table(clean_BEC_control.markers, "clean_BEC_control.markers.txt", sep="\t"
 ## Fig. 2b plot - control BECs
 
 ``` r
-#Plot UMAP representation
+#plot UMAP representation
  mycolor=c("#E377C2FF","#7F7F7FFF","#D62728FF","#1F77B4FF")
 
 new.cluster.ids <- c("aCap","vCap","Vein","Artery")
@@ -163,63 +142,6 @@ DimPlot(clean_BEC_control, reduction = "umap",label=TRUE,cols=mycolor,pt.size = 
     text = element_text(size=40)
   )
 ```
-
-    ## List of 4
-    ##  $ text       :List of 11
-    ##   ..$ family       : NULL
-    ##   ..$ face         : NULL
-    ##   ..$ colour       : NULL
-    ##   ..$ size         : num 40
-    ##   ..$ hjust        : NULL
-    ##   ..$ vjust        : NULL
-    ##   ..$ angle        : NULL
-    ##   ..$ lineheight   : NULL
-    ##   ..$ margin       : NULL
-    ##   ..$ debug        : NULL
-    ##   ..$ inherit.blank: logi FALSE
-    ##   ..- attr(*, "class")= chr [1:2] "element_text" "element"
-    ##  $ axis.text.x:List of 11
-    ##   ..$ family       : NULL
-    ##   ..$ face         : NULL
-    ##   ..$ colour       : NULL
-    ##   ..$ size         : num 40
-    ##   ..$ hjust        : NULL
-    ##   ..$ vjust        : NULL
-    ##   ..$ angle        : NULL
-    ##   ..$ lineheight   : NULL
-    ##   ..$ margin       : NULL
-    ##   ..$ debug        : NULL
-    ##   ..$ inherit.blank: logi FALSE
-    ##   ..- attr(*, "class")= chr [1:2] "element_text" "element"
-    ##  $ axis.text.y:List of 11
-    ##   ..$ family       : NULL
-    ##   ..$ face         : NULL
-    ##   ..$ colour       : NULL
-    ##   ..$ size         : num 40
-    ##   ..$ hjust        : NULL
-    ##   ..$ vjust        : NULL
-    ##   ..$ angle        : NULL
-    ##   ..$ lineheight   : NULL
-    ##   ..$ margin       : NULL
-    ##   ..$ debug        : NULL
-    ##   ..$ inherit.blank: logi FALSE
-    ##   ..- attr(*, "class")= chr [1:2] "element_text" "element"
-    ##  $ legend.text:List of 11
-    ##   ..$ family       : NULL
-    ##   ..$ face         : NULL
-    ##   ..$ colour       : NULL
-    ##   ..$ size         : num 40
-    ##   ..$ hjust        : NULL
-    ##   ..$ vjust        : NULL
-    ##   ..$ angle        : NULL
-    ##   ..$ lineheight   : NULL
-    ##   ..$ margin       : NULL
-    ##   ..$ debug        : NULL
-    ##   ..$ inherit.blank: logi FALSE
-    ##   ..- attr(*, "class")= chr [1:2] "element_text" "element"
-    ##  - attr(*, "class")= chr [1:2] "theme" "gg"
-    ##  - attr(*, "complete")= logi FALSE
-    ##  - attr(*, "validate")= logi TRUE
 
 ## Save final dataset - control BECs
 
