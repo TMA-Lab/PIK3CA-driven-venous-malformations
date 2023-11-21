@@ -1,4 +1,4 @@
-Fig.2e:GO enrichment analysis using top Vein and Artery cluster markers
+Fig.2e: GO enrichment analysis using top Vein and Artery cluster markers
 ================
 Marle Kraft
 2023-10-02
