@@ -93,14 +93,12 @@ p <- pheatmap(
 )
 ```
 
-![](Figure-2e_files/figure-gfm/unnamed-chunk-2-1.png)<!-- --> \# Save
-cluster Artey/Vein heatmap as a PDF
+![](Figure-2e_files/figure-gfm/unnamed-chunk-2-1.png)
+
+# Save cluster Artey/Vein heatmap as a PDF
 
 ``` r
 pdf("GO terms of Artery and Vein.pdf")
 print(p)  
 dev.off()  
 ```
-
-    ## quartz_off_screen 
-    ##                 2
