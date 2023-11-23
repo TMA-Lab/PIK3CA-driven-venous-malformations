@@ -26,10 +26,8 @@ library(RColorBrewer)
 
 ``` r
 # load data
-#note: this file should include metadata information about cluster "$Annotation" and genotype "$group" (see documentation for Figure 3a)
 
 #BEC.integrated<-readRDS("Your/File/Directory/"Integrated_BEC.rds")
-BEC.integrated<-readRDS("/Users/markr691/BEC.integrated.rds")
 
 #set cluster colors
 mycolor<-c("#E377C2FF", "#7F7F7FFF","#D62728FF","#1F77B4FF","#BCBD22FF","#2CA02CFF","#8C564BFF")
