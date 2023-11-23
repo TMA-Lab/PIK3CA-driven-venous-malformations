@@ -57,7 +57,7 @@ set.seed(100)
 #note: this file should include metadata information about cluster "$Annotation" and genotype "$group" (see documentation for Figure 3a)
 
 #BEC.integrated<-readRDS("Your/File/Directory/"Integrated_BEC.rds")
-BEC.integrated<-readRDS("/Users/markr691/Desktop/Github VM manuscript/BEC.integrated.rds")
+
 ```
 
 # WT
