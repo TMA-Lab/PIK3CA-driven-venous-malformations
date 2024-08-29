@@ -1,6 +1,6 @@
 ## PIK3CA-driven-venous-malformations 
 
-This repository contains code supporting our publication:
+This repository contains underlying code of our publication (bioinformatics contribution: Marle Kraft)
 
 ### ***"Venous-specific PI3K-TIE2 autocrine feedback loop promotes PIK3CA-driven vascular malformations"***
 
