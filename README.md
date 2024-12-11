@@ -1,6 +1,6 @@
 ## PIK3CA-driven-venous-malformations 
 
-This repository contains underlying code of our publication (bioinformatics contribution: Marle Kraft)
+This repository contains underlying code of our publication 
 
 ### ***"Angiopoietin-TIE2 feedforward circuit promotes PIK3CA-driven venous malformations"***
 
