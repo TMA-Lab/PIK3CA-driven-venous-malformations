@@ -2,7 +2,7 @@
 
 This repository contains underlying code of our publication 
 
-### ***"Angiopoietin-TIE2 feedforward circuit promotes PIK3CA-driven venous malformations"***
+### ***"Angiopoietin-TIE2 feedforward circuit promotes PIK3CA-driven venous"***
 
 *Marle Kraft, Hans Schoofs, Milena Petkova, Jorge Andrade, Ana Rita Grosso, Rui Benedito, An-Katrien De Roo, Laurence M. Boon, Miikka Vikkula, Friedrich G. Kapp, René Hägerling, Michael Potente and Taija Mäkinen*
 
