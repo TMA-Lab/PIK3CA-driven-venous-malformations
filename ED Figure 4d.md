@@ -1,4 +1,4 @@
-Fig.5d: GO enrichment analysis of upregulated DEGs unique for Pik3ca-1
+ED Fig.4d: GO enrichment analysis of upregulated DEGs unique for Pik3ca-1
 or Pik3ca-2, and those shared with FOXO1 signature
 ================
 Marle Kraft
@@ -215,7 +215,7 @@ p <- pheatmap(
 )
 ```
 
-![](Fig.5d_files/figure-gfm/unnamed-chunk-5-1.png)<!-- --> \# Save
+![](ED Fig.4d_files/figure-gfm/unnamed-chunk-5-1.png)<!-- --> \# Save
 cluster Pik3ca-2 heatmap as a PDF
 
 ``` r
